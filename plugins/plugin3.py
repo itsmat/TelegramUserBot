@@ -903,7 +903,7 @@ async def remg(client, message):
            await message.edit("❌ Errore")
 #mute
 mutati = []
-textsmute = {"mex": "sei stato mutato clown...🤡."}
+textsmute = {"mex": "msg mute."}
 
 @Client.on_message(filters.user("self") & filters.command("msgmute","."))
 async def setmute(client, message): 
@@ -923,7 +923,7 @@ async def mute(client, message):
       mutati.append(message.chat.id)
       await message.edit(textss)
 
-textsunmute = {"mex": "sei stato smutato, @bossbho è un dio benevolo...😁"}
+textsunmute = {"mex": "msg unmute"}
 @Client.on_message(filters.user("self") & filters.command("msgunmute","."))
 async def msgunmute(client, message):
    global textsunmute
@@ -1363,25 +1363,6 @@ async def fsdasdfsdf(client, message):
         await message.edit("Utilizza .setforward {chatid}")
 
 @Client.on_message(filters.user("self") & filters.command("forward","."))
-async def forw(client, message):
-    if message.reply_to_message:
-        try:
-            f = -1001720733537
-            c = -1001170219096
-            await message.reply_to_message.forward(f)
-            await message.reply_to_message.forward(c)
-            await message.edit(f"**💭 Messaggio inoltrato correttamente in {f} e in {c} .")
-        except PeerIdInvalid:
-            await message.edit("⚠️ Errore, controlla se sei admin nel canale o se l'id inserito è corretto")
-        except UsernameInvalid:
-            await message.edit("⚠️ Errore, controlla se sei admin nel canale o se l'id inserito è corretto")
-        except:
-            traceback.print_exc()
-            await message.edit("⚠️ Errore, controlla se sei admin nel canale o se l'id inserito è corretto")
-    else:
-        await message.edit("⚠️ Errore, devi rispondere ad un messaggio")
-
-@Client.on_message(filters.user("self") & filters.command("forward2","."))
 async def fw(client, message):
     global channel
     if not channel["channel"] == "vuoto":
